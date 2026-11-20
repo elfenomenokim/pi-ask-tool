@@ -1,0 +1,12 @@
+{
+  "name": "pi-ask-tool",
+  "sentence": "A Pi agent extension that asks the owner one genuine question through Pi's built-in UI.",
+  "tag": "TYPESCRIPT · PI EXTENSION",
+  "terminal": [
+    "$ node docs/demo/ask.mjs",
+    "answer: codex",
+    "answer: false",
+    "cancelled"
+  ],
+  "flow": ["question + options?", "select / confirm / input", "answer: value"]
+}

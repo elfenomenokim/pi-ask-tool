@@ -1,0 +1,13 @@
+flowchart TD
+    A[ask 도구 호출, 질문 전달] --> B{kind 지정?}
+    B -- 없음, options 있음 --> C[선택 대화상자]
+    B -- options 없음 --> D[입력 대화상자]
+    B -- select --> C
+    B -- confirm --> E[확인 대화상자]
+    B -- input --> D
+    C --> F{닫힘?}
+    D --> F
+    E --> G[answer: true / false]
+    F -- 답변 --> H[answer: 값]
+    F -- 닫힘 --> I[cancelled]
+    J[대화상자 없는 실행] --> K[대체 문구, 대화상자 없음]

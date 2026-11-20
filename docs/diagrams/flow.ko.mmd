@@ -1,0 +1,10 @@
+flowchart LR
+  A["Pi 에이전트가<br/>작업 중에<br/>꼭 물을 일이 생김"] --> B["<b>ask</b> 호출<br/>질문 + 선택지"]
+  B --> C{"방식"}
+  C -- select --> D["선택지에서<br/>하나 고르기"]
+  C -- confirm --> E["예 / 아니오"]
+  C -- input --> F["직접 입력"]
+  D & E & F --> G["답이 글로<br/>에이전트에게 돌아감"]
+  B -. "화면 없음(헤드리스)" .-> H["멈추지 않고<br/>'화면 없음'을 돌려줌"]
+  classDef good fill:#dcfce7,stroke:#16a34a,color:#14532d
+  class G good

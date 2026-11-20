@@ -1,0 +1,10 @@
+flowchart LR
+  A["Pi agent hits a real<br/>decision mid-task"] --> B["calls <b>ask</b><br/>question + options"]
+  B --> C{"kind"}
+  C -- select --> D["pick one option"]
+  C -- confirm --> E["yes / no"]
+  C -- input --> F["type an answer"]
+  D & E & F --> G["the answer returns<br/>to the agent as text"]
+  B -. "headless, no UI" .-> H["returns a no-UI result<br/>instead of hanging"]
+  classDef good fill:#dcfce7,stroke:#16a34a,color:#14532d
+  class G good

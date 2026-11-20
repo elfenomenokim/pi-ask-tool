@@ -1,0 +1,36 @@
+{
+  "name": "pi-ask-tool",
+  "version": "0.1.0",
+  "description": "A Pi agent extension that asks the owner one genuine question through Pi's built-in UI.",
+  "type": "module",
+  "main": "index.ts",
+  "files": [
+    "index.ts"
+  ],
+  "scripts": {
+    "test": "node --test tests/ask-tool.test.mjs"
+  },
+  "dependencies": {
+    "typebox": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elfenomenokim/pi-ask-tool"
+  },
+  "keywords": [
+    "pi",
+    "ai-agent",
+    "prompt",
+    "confirm",
+    "cli-ui"
+  ],
+  "homepage": "https://github.com/elfenomenokim/pi-ask-tool#readme",
+  "bugs": {
+    "url": "https://github.com/elfenomenokim/pi-ask-tool/issues"
+  },
+  "author": "El Fenomeno"
+}

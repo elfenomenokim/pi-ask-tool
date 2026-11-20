@@ -1,0 +1,13 @@
+flowchart TD
+    A[ask tool called with question] --> B{kind given?}
+    B -- no, options present --> C[select dialog]
+    B -- no options --> D[input dialog]
+    B -- select --> C
+    B -- confirm --> E[confirm dialog]
+    B -- input --> D
+    C --> F{dismissed?}
+    D --> F
+    E --> G[answer: true / false]
+    F -- answered --> H[answer: value]
+    F -- dismissed --> I[cancelled]
+    J[no dialog-capable UI] --> K[fallback text, no dialog]
