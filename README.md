@@ -28,12 +28,19 @@
 ## Install
 
 ```sh
+pi install npm:pi-ask-tool
+```
+
+Or copy the single file:
+
+```sh
 git clone https://github.com/elfenomenokim/pi-ask-tool
+mkdir -p ~/.pi/agent/extensions/ask-tool
 cp pi-ask-tool/index.ts ~/.pi/agent/extensions/ask-tool/index.ts
 ```
 
-Node 22.18 or newer and the `typebox` package are required; Pi provides both at
-runtime. Tested on macOS (Apple Silicon) with Node 22.23.5.
+Node 22.18 or newer and the `typebox` package are required; `pi install` fetches
+`typebox`, and Pi provides it at runtime for the copied file. Tested on macOS (Apple Silicon) with Node 22.23.5.
 
 ## Quick start
 

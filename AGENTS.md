@@ -2,6 +2,24 @@
 
 Instructions for a coding agent working in this repository.
 
+## Set up for a user
+
+Goal: Pi can call an `ask` tool that opens a dialog for the user. Run these steps in order.
+
+1. Check what is present.
+   - `node --version` prints `v22.18` or newer. If not: `brew install node` (macOS) or `curl -fsSL https://fnm.vercel.app/install | bash` then `fnm install 22`.
+   - `pi --version` prints a version. If not: `npm install -g @earendil-works/pi-coding-agent`.
+2. Install the extension: `pi install npm:pi-ask-tool` ends with `Installed npm:pi-ask-tool`; `pi list` shows it under "User packages". Pi installs `typebox` with it.
+   (Release 0.1.0 has no `pi` manifest and Pi does not load it; install 0.1.1 or newer, or copy the file: `mkdir -p ~/.pi/agent/extensions/ask-tool && curl -fsSL https://raw.githubusercontent.com/elfenomenokim/pi-ask-tool/main/index.ts -o ~/.pi/agent/extensions/ask-tool/index.ts`.)
+3. Only the person can do this. If Pi has no model login (`pi auth check --provider <name>` does not print `ready`), say exactly: "Pi에서 쓸 AI 서비스(예: anthropic, openai)를 알려주세요. 브라우저가 열리면 로그인하거나 API 키를 붙여 넣어 주세요." Then run `pi auth login <provider>`.
+4. Prove it: start `pi` in any folder, ask it to "use the ask tool to ask me whether to continue, options yes and no". A dialog opens in the terminal; the person picks an option and Pi repeats `answer: <their choice>`. Tell the person first: "질문 창이 뜨면 아무거나 골라 주세요."
+   Without a screen: `node docs/demo/ask.mjs` in a clone prints five lines, the first `answer: codex`.
+5. If it fails, in this order:
+   - Pi answers that it has no `ask` tool: the package was not loaded. Run `pi list`; if it is missing, repeat step 2; if it is listed, the installed version lacks the manifest (step 2 note).
+   - `pi: command not found`: the npm global bin directory is not on PATH (`npm prefix -g`, then add its `bin`).
+   - Pi starts but cannot call a model: step 3 was not finished; run `pi auth check --provider <name>`.
+   - The tool answers `no one to ask; proceed with your best judgment ...`: Pi ran without a screen (`pi -p` or a worker); that is the designed fallback, not a bug.
+
 ## Layout
 
 - `index.ts` — the whole tool: one Pi extension registering the `ask` tool.

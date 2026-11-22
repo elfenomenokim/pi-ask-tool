@@ -5,6 +5,12 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-22
+
+### Fixed
+
+- `pi install npm:pi-ask-tool` installed the package but Pi did not load it; `package.json` now declares `pi.extensions`. The README install path no longer fails on a missing `extensions/ask-tool` directory.
+
 ## [0.1.0] - 2026-11-20
 
 ### Fixed

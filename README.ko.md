@@ -28,12 +28,19 @@
 ## 설치
 
 ```sh
+pi install npm:pi-ask-tool
+```
+
+파일 하나만 복사해도 됩니다.
+
+```sh
 git clone https://github.com/elfenomenokim/pi-ask-tool
+mkdir -p ~/.pi/agent/extensions/ask-tool
 cp pi-ask-tool/index.ts ~/.pi/agent/extensions/ask-tool/index.ts
 ```
 
-Node 22.18 이상과 `typebox` 패키지가 필요합니다. 둘 다 Pi 실행 환경에 들어
-있습니다. macOS(Apple Silicon), Node 22.23.5에서 확인했습니다.
+Node 22.18 이상과 `typebox` 패키지가 필요합니다. `pi install`은 `typebox`를 함께
+받고, 파일을 복사한 경우에는 Pi 실행 환경의 `typebox`를 씁니다. macOS(Apple Silicon), Node 22.23.5에서 확인했습니다.
 
 ## 빠르게 써 보기
 
